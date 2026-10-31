@@ -95,8 +95,11 @@ h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.6rem, 8vw
 #dlg-body > .hook { font-size: 1.15rem; margin-bottom: 1rem; }
 .card .more { font-size: .9rem; font-weight: 600; color: var(--accent); padding-top: .9rem; border-top: 1px solid var(--line); }
 .card .more::after { content: " →"; }
-.card.soon { cursor: default; }
-.card.soon:hover { border-color: var(--line); box-shadow: none; transform: none; }
+.xref { justify-self: start; display: inline-flex; align-items: center; gap: .4rem; font-size: .92rem; font-weight: 600; color: var(--accent); text-decoration: none; padding: .35rem .75rem .35rem .65rem; border: 1px solid var(--accent-soft); border-radius: 999px; background: var(--accent-soft); transition: border-color .15s; }
+.xref::before { content: ""; width: .95rem; height: .95rem; flex: none; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M31 17.5C24.5 12.5 15 11.5 5 13.5v36c10-2 19.5-1 26 4zM33 17.5c6.5-5 16-6 26-4v36c-10-2-19.5-1-26 4z'/%3E%3C/svg%3E") center/contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M31 17.5C24.5 12.5 15 11.5 5 13.5v36c10-2 19.5-1 26 4zM33 17.5c6.5-5 16-6 26-4v36c-10-2-19.5-1-26 4z'/%3E%3C/svg%3E") center/contain no-repeat; }
+.xref::after { content: "→"; }
+.xref:hover { border-color: var(--accent); }
+.soon-note { color: var(--muted); }
 .card.soon .more { color: var(--muted); font-weight: 500; }
 .card.soon .more::after { content: ""; }
 .section-head .eyebrow { margin: 0 0 .25rem; }
@@ -187,11 +190,7 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
       <h2>Grundlæggende emner</h2>
       <p>Det, man skal vide for at forstå islam: kilderne, og hvordan de bruges.</p>
     </div>
-    <div class="grid" id="grid-grundlag">
-      <div class="card soon"><span class="num">01</span><span class="q">Koranen</span><span class="hook">Hvad er Koranen, og hvordan læses den?</span><span class="more">Kommer snart</span></div>
-      <div class="card soon"><span class="num">02</span><span class="q">Hadith-videnskab</span><span class="hook">Hvordan skelner de lærde mellem pålidelige og svage beretninger?</span><span class="more">Kommer snart</span></div>
-      <div class="card soon"><span class="num">03</span><span class="q">Profeten Mohammed</span><span class="hook">Hvem var han, og hvad lærte han?</span><span class="more">Kommer snart</span></div>
-    </div>
+    <div class="grid" id="grid-grundlag"></div>
   </section>
 
 </main>
@@ -211,6 +210,18 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
   <div class="dlg-body" id="dlg-body"></div>
 </dialog>
 
+<template id="koranen" data-section="grundlag" data-soon data-title="Koranen" data-q="Hvad er Koranen, og hvordan læses den?">
+  <p class="soon-note">Vi arbejder på teksten om Koranen. Den kommer snart.</p>
+</template>
+
+<template id="hadith" data-section="grundlag" data-soon data-title="Hadith-videnskab" data-q="Hvordan skelner de lærde mellem pålidelige og svage beretninger?">
+  <p class="soon-note">Vi arbejder på teksten om hadith-videnskab. Den kommer snart.</p>
+</template>
+
+<template id="profeten" data-section="grundlag" data-soon data-title="Profeten Mohammed" data-q="Hvem var han, og hvad lærte han?">
+  <p class="soon-note">Vi arbejder på teksten om profeten Mohammed. Den kommer snart.</p>
+</template>
+
 <!-- Hvert spørgsmål er en <template>. Tilføj et nyt kort ved at kopiere en blok og give den et nyt id. -->
 <template id="homoseksualitet" data-tag="Seksualitet" data-title="Homoseksualitet" data-q="Skal homoseksuelle dø?" data-approved>
   <div class="intro"><p>Emnet omkring homoseksualitet i islam kan være et følelsesladet emne at adressere som muslim, især i et vestligt samfund. Det kan fylde for mange mennesker, og de kan blive nysgerrige på, hvordan islam ser på homoseksualitet. Det er derfor vigtigt at give et svar, som både reflekterer islams principper og manerer uden at gå på kompromis med sandheden.</p></div>
@@ -229,10 +240,12 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
     <blockquote>Der er ingen tvang i religionen.<cite>Koranen 2:256</cite></blockquote>
     <blockquote>Sandheden er fra jeres Herre. Den, der vil, lad ham tro, og den, der vil, lad ham ikke tro.<cite>Koranen 18:29</cite></blockquote>
     <p>Koranen 4:137 omtaler mennesker, der tror, falder fra, tror igen og falder fra igen. Det giver kun mening, hvis de lever videre. Verset nævner ingen menneskelig straf.</p>
+    <a class="xref" href="#koranen">Læs om Koranen</a>
   </section>
   <section>
     <h3>Hvad med hadith?</h3>
     <p>En hadith i al-Bukhari (6922) siger: "Den, der skifter sin religion, dræb ham." En anden (al-Bukhari 6878) nævner den, der "forlader sin religion og skiller sig fra fællesskabet". Mange lærde forstår det som forræderi i krigstid, hvor det at forlade fællesskabet betød at gå over til fjenden.</p>
+    <a class="xref" href="#hadith">Læs om hadith-videnskab</a>
   </section>
   <section>
     <h3>Forskellige synspunkter</h3>
@@ -269,6 +282,7 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
     <h3>Hvad siger Koranen?</h3>
     <blockquote>O mennesker, frygt jeres Herre, som skabte jer af én enkelt sjæl.<cite>Koranen 4:1</cite></blockquote>
     <p>Koranen 33:35 nævner mænd og kvinder side om side i ti par og lover dem samme belønning. 16:97 siger, at den, der gør godt, "mand eller kvinde", får et godt liv.</p>
+    <a class="xref" href="#koranen">Læs om Koranen</a>
   </section>
   <section>
     <h3>De omdiskuterede vers</h3>
@@ -281,6 +295,7 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
   <section>
     <h3>Forskellige synspunkter</h3>
     <p>Nogle muslimer mener, at mænd og kvinder er lige i værdi, men har forskellige roller. Andre, fx teologen Amina Wadud, mener, at Koranens grundbudskab er fuld ligestilling. Historisk var profetens hustru Khadija en succesfuld forretningskvinde, og Aisha var en af de vigtigste lærde i den tidlige islam.</p>
+    <a class="xref" href="#profeten">Læs om profeten Mohammed</a>
   </section>
   <p class="sources"><strong>Kilder:</strong> Koranen 4:1, 4:11, 4:34, 2:282, 16:97, 33:35 · Muslim 2328 · A. Wadud, <em>Qur'an and Woman</em> (1999)</p>
 </template>
@@ -291,6 +306,7 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
     <h3>Hvad siger Koranen?</h3>
     <blockquote>Kæmp for Guds sag mod dem, der kæmper mod jer, men overskrid ikke grænserne. Gud elsker ikke dem, der overskrider grænserne.<cite>Koranen 2:190</cite></blockquote>
     <blockquote>Den, der dræber et menneske, er som én, der har dræbt hele menneskeheden.<cite>Koranen 5:32</cite></blockquote>
+    <a class="xref" href="#koranen">Læs om Koranen</a>
   </section>
   <section>
     <h3>Reglerne for krig</h3>
@@ -303,18 +319,22 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
 
 <script>
 (function () {
-  var grid = document.getElementById('grid-kontroversielle');
   var dlg = document.getElementById('dlg');
   var title = document.getElementById('dlg-title');
   var body = document.getElementById('dlg-body');
   var templates = document.querySelectorAll('template[data-q]');
 
-  templates.forEach(function (t, i) {
+  var counts = {};
+  templates.forEach(function (t) {
+    var section = t.dataset.section || 'kontroversielle';
+    var grid = document.getElementById('grid-' + section);
+    var i = counts[section] = (counts[section] || 0) + 1;
     var b = document.createElement('button');
     b.type = 'button';
-    b.className = 'card';
+    b.className = t.hasAttribute('data-soon') ? 'card soon' : 'card';
     b.innerHTML = '<span class="num"></span><span class="q"></span><span class="hook"></span><span class="more">Læs svaret</span>';
-    b.querySelector('.num').textContent = String(i + 1).padStart(2, '0');
+    b.querySelector('.num').textContent = String(i).padStart(2, '0');
+    if (t.hasAttribute('data-soon')) b.querySelector('.more').textContent = 'Kommer snart';
     b.querySelector('.q').textContent = t.dataset.title;
     b.querySelector('.hook').textContent = t.dataset.q;
     b.addEventListener('click', function () { location.hash = t.id; });
@@ -333,7 +353,7 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
     var note = document.createElement('p');
     note.className = 'draft-note';
     note.textContent = 'Udkast. Teksten skal gennemgås, og kilderne skal tjekkes, før siden går live.';
-    if (!t.hasAttribute('data-approved')) body.appendChild(note);
+    if (!t.hasAttribute('data-approved') && !t.hasAttribute('data-soon')) body.appendChild(note);
     if (!dlg.open) dlg.showModal();
     dlg.scrollTop = 0;
   }
