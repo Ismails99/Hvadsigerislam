@@ -134,6 +134,7 @@ dialog::backdrop { background: rgb(10 20 17 / .55); }
 .dlg-body section { display: grid; gap: .5rem; }
 .dlg-body h3 { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0; font-weight: 600; }
 .dlg-body p, .dlg-body ul { margin: 0; max-width: 65ch; }
+.dlg-body ol { margin: .6rem 0 0; padding-left: 1.3rem; display: grid; gap: .35rem; max-width: 65ch; }
 .dlg-body ul { padding-left: 1.2rem; display: grid; gap: .35rem; }
 .short { font-size: 1.12rem; background: var(--accent-soft); padding: .9rem 1rem; border-radius: 4px; }
 blockquote { margin: 0; padding-left: .9rem; border-left: 3px solid var(--accent); font-family: var(--display); font-size: 1.05rem; }
@@ -257,22 +258,14 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
   <p class="sources"><strong>Kilder:</strong> Koranen 2:256, 18:29, 4:137 · al-Bukhari 6922, 6878 · T. J. al-Alwani, <em>Apostasy in Islam</em> (2011)</p>
 </template>
 
-<template id="sharia" data-tag="Lov og ret" data-title="Hvad er sharia?" data-q="Skal tyve have hånden hugget af?">
-  <p class="short">Sharia betyder "vejen" og handler mest om bøn, faste, ægteskab, ærlighed og etik. Kun en lille del handler om straf, og den del har meget strenge betingelser.</p>
-  <section>
-    <h3>Hvad er sharia?</h3>
-    <p>Sharia er de guddommelige principper. Fiqh er den menneskelige fortolkning af dem, og den har altid rummet flere skoler og uenighed. Når nogen siger "sharia kræver X", er det oftest én bestemt fortolkning.</p>
-  </section>
-  <section>
-    <h3>De faste straffe (hudud)</h3>
-    <p>Koranen nævner få faste straffe, fx for tyveri (5:38) og falsk anklage om utroskab (24:4). Lige efter tyveriverset står: "Men den, der angrer og retter op, vil Gud tilgive" (5:39).</p>
-    <p>Et centralt princip i islamisk ret er at afværge straf ved den mindste tvivl. Kalif Umar satte straffen for tyveri ud af kraft under en hungersnød, fordi folk stjal af nød.</p>
-  </section>
-  <section>
-    <h3>Og i Danmark?</h3>
-    <p>Koranen siger: "I, der tror, opfyld jeres aftaler" (5:1). Muslimske lærde er bredt enige om, at muslimer, der bor i et land, skal følge landets love. Ingen kan udføre straf på egen hånd.</p>
-  </section>
-  <p class="sources"><strong>Kilder:</strong> Koranen 5:1, 5:38–39, 24:4 · Princippet om at afværge straf ved tvivl, jf. at-Tirmidhi 1424 · M. H. Kamali, <em>Shari'ah Law: An Introduction</em> (2008)</p>
+<template id="sharia" data-tag="Lov og ret" data-title="Sharia" data-q="Hvad er Sharia?" data-approved>
+  <div class="short"><p>Sharia betyder "vejen". Det er islams vejledning for hele livet: bøn, faste, ægteskab, mad og arv. Målet er at beskytte menneskers liv, tro, forstand, familie og ejendom. Straffene fylder meget lidt, må kun udføres af en lovlig stat og domstol og blev historisk næsten aldrig brugt. Muslimer lærer at følge landets lov.</p></div>
+  <details><summary>Hvad betyder Sharia?</summary><p>Alle samfund har love. De beskytter den enkelte og især de svageste, og uden dem vinder de mest hensynsløse.</p><p>Sharia betyder stien eller vejen: vejen til et godt liv og til Gud. Det er islams hellige lov, regler for alle dele af livet, som muslimer tror er givet af Gud.</p><p>Det er ikke særligt for islam. Koranen siger: "Til hver af jer har Vi givet en lov og en levevej." Jøder, kristne og muslimer har hver deres.</p></details>
+  <details><summary>Sharia er ikke det samme som fiqh</summary><p>Sharia er Guds lov. Fiqh er de konkrete regler, som lærde mennesker gennem århundreder har udledt af Koranen og profetens eksempel. Fiqh er altså menneskers forsøg på at forstå Sharia, og derfor findes der forskellige retninger og meninger.</p></details>
+  <details><summary>Hvad står der i Sharia?</summary><p>Slår man op i en islamisk lovbog, handler første kapitel om at rense sig før bøn. Derefter kommer bøn, faste, almisse og pilgrimsrejse, og så ægteskab, skilsmisse, mad og drikke og arv. Strafferet fylder kun en meget lille del.</p></details>
+  <details><summary>Sharias fem mål</summary><p>Sharia bygger på barmhjertighed, ikke på vrede. Koranen siger, at Gud påbyder retfærdighed og godhed og forbyder ondskab og aggression. Store lærde som al-Shatibi og Ibn Taymiyya skrev, at hele Sharia er til for at gavne mennesker: at fremme det gode og mindske skade.</p><p>De lærde samler det i fem mål. Sharia skal beskytte:</p><ol><li><strong>Religionen:</strong> retten til at dyrke sin tro.</li><li><strong>Livet:</strong> den, der dræber ét menneske, er som én, der har dræbt hele menneskeheden.</li><li><strong>Forstanden:</strong> derfor er alkohol og rusmidler forbudt.</li><li><strong>Familien:</strong> samfundets byggesten.</li><li><strong>Ejendommen:</strong> ingen må tage det, der er dit. Samtykke er ikke nok, hvis man er presset af sin situation. Derfor er renter forbudt: de rige må ikke udnytte de fattige.</li></ol><p>Profeten sagde i sin afskedsprædiken, at ethvert menneskes liv, ejendom og ære er ukrænkeligt (Bukhari 67, Muslim 1679). Det er mål, som alle mennesker kan se visdommen i, muslimer eller ej.</p></details>
+  <details><summary>Frihed for andre</summary><p>Muslimer mener, at deres egen tro er den rigtige. Alligevel har Sharia beskyttet kristne, jøder og hinduer, så de kunne dyrke deres tro. Ingen kan tvinges til at opgive sin tro.</p><p>Profeten sagde: "Ingen araber er bedre end en ikke-araber, og ingen hvid er bedre end en sort" (Musnad Ahmad 23489). Det er ikke flertallet, der afgør, hvad der er rigtigt. Selv USA's forfatning regnede engang slaver som tre femtedele af et menneske.</p><p>Sharia lærer muslimer at følge landets lov, så længe de kan praktisere deres tro.</p></details>
+  <details><summary>Hvad med straffene?</summary><p>Straffe må kun udføres af en lovlig stat med domstole, aldrig af privatpersoner.</p><p>Det bærende princip er, at tvivl frifinder. Profeten skal have sagt: "Det er bedre at fejle i barmhjertighed end i straf" (Tirmidhi 1424). De lærde ledte efter enhver tvivl for at undgå de hårde straffe. For tyveri skulle over 80 betingelser være opfyldt, og manglede blot én, var straffen ulovlig.</p><p>Tvivlsprincippet, uskyldsformodningen og et retfærdigt domstolssystem gjorde straffene næsten umulige at gennemføre. I 500 års osmannisk styre er der kun kendt ét tilfælde af stening for utroskab.</p><p>Den lærde Ibn al-Qayyim skrev: "Sharia er helt igennem retfærdighed, barmhjertighed, visdom og velfærd. En regel, der erstatter retfærdighed med uretfærdighed eller barmhjertighed med grusomhed, hører ikke til Sharia."</p></details>
 </template>
 
 <template id="ligestilling" data-tag="Køn" data-title="Ulighed mellem køn?" data-q="Er en kvinde halvt så meget værd som en mand?">
