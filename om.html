@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Om siden · Hvad siger Islam?</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Spørgsmål om islam, som man hører i debatten, besvaret med kilderne på bordet.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,650;8..60,700&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: topmenu, hero, spørgsmålskort (åbner svar i en dialog), om siden, kontakt, footer */
+:root {
+  --bg: #f3f6f5;
+  --surface: #ffffff;
+  --ink: #14231f;
+  --muted: #536660;
+  --line: #d5dfdb;
+  --accent: #0d6a5a;
+  --accent-soft: #e1efeb;
+  --draft: #8a5300;
+  --draft-soft: #fbf0dc;
+  --display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1513; --surface: #16201d; --ink: #e5eeeb; --muted: #9ab0a9; --line: #2a3834;
+    --accent: #62c6af; --accent-soft: #1b302b; --draft: #e8b25a; --draft-soft: #2e2516; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1513; --surface: #16201d; --ink: #e5eeeb; --muted: #9ab0a9; --line: #2a3834;
+  --accent: #62c6af; --accent-soft: #1b302b; --draft: #e8b25a; --draft-soft: #2e2516; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body);
+  font-size: 1.0625rem; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1080px; margin: 0 auto; }
+a { color: var(--accent); }
+.draft-banner {
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))) calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  background: var(--draft-soft); color: var(--draft); text-align: center;
+  padding: .4rem 16px; font-size: .8rem; font-weight: 500; line-height: 1.4;
+}
+.site-nav {
+  position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))) calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+}
+.site-nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 64px; flex-wrap: wrap; padding-block: .5rem; }
+.logo { display: flex; align-items: center; gap: .45rem; text-decoration: none; color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 1.2rem; line-height: 1; }
+.logo svg { width: 1.6rem; height: 1.6rem; flex: none; color: var(--accent); }
+.logo i, h1 i { font-style: normal; color: var(--accent); }
+.menu { display: flex; gap: clamp(1rem, 3vw, 2rem); list-style: none; margin: 0; padding: 0; }
+.menu a { color: var(--muted); text-decoration: none; font-size: .95rem; font-weight: 500; padding-block: .25rem; border-bottom: 2px solid transparent; transition: color .15s, border-color .15s; }
+.menu a:hover { color: var(--ink); border-color: var(--accent); }
+@media (max-width: 760px) { .site-nav .wrap { justify-content: center; } .menu { width: 100%; justify-content: center; flex-wrap: wrap; gap: .35rem 1.1rem; } .menu a { font-size: .88rem; } }
+
+.hero { padding-block: clamp(4rem, 12vw, 8.5rem) clamp(3.5rem, 9vw, 6.5rem); max-width: 60rem; margin-inline: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.eyebrow { font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 1.5rem; }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.6rem, 8vw, 4.75rem); line-height: 1.02; letter-spacing: -.015em; margin: 0 0 2rem; text-wrap: balance; }
+.lede { font-size: clamp(1.1rem, 2.1vw, 1.3rem); line-height: 1.75; color: var(--muted); margin: 0 0 2.75rem; max-width: 50rem; text-wrap: pretty; }
+.btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--accent); color: var(--surface); text-decoration: none; font-weight: 600; font-size: .98rem; padding: .95rem 1.8rem; border-radius: 4px; transition: opacity .15s; }
+.btn:hover { opacity: .9; }
+
+.section { padding-block: clamp(3rem, 7vw, 4.5rem); border-top: 1px solid var(--line); scroll-margin-top: 64px; }
+.section-head { display: grid; gap: .5rem; margin-bottom: 2.25rem; max-width: 40rem; }
+.section h2 { font-family: var(--display); font-weight: 650; font-size: clamp(1.7rem, 3.5vw, 2.25rem); line-height: 1.15; margin: 0; }
+.section-head p { margin: 0; color: var(--muted); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 1.25rem; }
+.card {
+  display: grid; grid-template-rows: auto auto 1fr auto; gap: .6rem; min-height: 15rem;
+  text-align: left; padding: 1.6rem 1.6rem 1.4rem; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--surface); color: var(--ink); font: inherit; cursor: pointer; min-width: 0;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.card:hover { border-color: var(--accent); box-shadow: 0 10px 30px -18px rgb(13 60 50 / .45); transform: translateY(-2px); }
+.card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.card .num { font-size: .78rem; letter-spacing: .12em; color: var(--muted); font-weight: 600; font-variant-numeric: tabular-nums; }
+.card .q { font-family: var(--display); font-weight: 650; font-size: clamp(1.3rem, 2.3vw, 1.55rem); line-height: 1.2; text-wrap: balance; overflow-wrap: anywhere; }
+.hook { font-style: italic; color: var(--accent); margin: 0; }
+.card .hook { font-size: 1rem; line-height: 1.45; color: var(--muted); }
+#dlg-body > .hook { font-size: 1.15rem; margin-bottom: 1rem; }
+.card .more { font-size: .9rem; font-weight: 600; color: var(--accent); padding-top: .9rem; border-top: 1px solid var(--line); }
+.card .more::after { content: " →"; }
+.card.soon { cursor: default; }
+.card.soon:hover { border-color: var(--line); box-shadow: none; transform: none; }
+.card.soon .more { color: var(--muted); font-weight: 500; }
+.card.soon .more::after { content: ""; }
+.section-head .eyebrow { margin: 0 0 .25rem; }
+@media (max-width: 520px) { .card { min-height: 0; padding: 1.25rem; } }
+
+.split { display: grid; gap: 1rem 3rem; }
+@media (min-width: 760px) { .split { grid-template-columns: 1fr 2fr; } }
+.split .text { display: grid; gap: 1rem; max-width: 40rem; color: var(--muted); font-size: 1.05rem; }
+.split .text p { margin: 0; }
+.mail { font-family: var(--display); font-size: 1.35rem; font-weight: 650; text-decoration: none; border-bottom: 2px solid var(--accent-soft); }
+.mail:hover { border-color: var(--accent); }
+footer { border-top: 1px solid var(--line); padding-block: 1.75rem 2.5rem; color: var(--muted); font-size: .88rem; }
+footer a { color: var(--muted); text-decoration: none; } footer a:hover { color: var(--ink); }
+.foot-links { display: flex; gap: 1.5rem; }
+.page { padding-block: clamp(3.5rem, 9vw, 6rem) clamp(4rem, 10vw, 7rem); max-width: 44rem; min-height: calc(100dvh - 240px); }
+.page h1 { font-size: clamp(2.3rem, 6vw, 3.4rem); margin-bottom: 1.5rem; }
+.page .text { display: grid; gap: 1.1rem; color: var(--muted); font-size: 1.1rem; line-height: 1.75; }
+.page .text p { margin: 0; }
+.menu a[aria-current] { color: var(--ink); border-color: var(--accent); }
+footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+dialog {
+  width: min(720px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; border: 1px solid var(--line);
+  border-radius: 6px; background: var(--surface); color: var(--ink);
+}
+dialog::backdrop { background: rgb(10 20 17 / .55); }
+.dlg-head { position: sticky; top: 0; background: var(--surface); display: flex; justify-content: space-between; align-items: start; gap: 1rem; padding: 1.25rem 1.25rem .75rem; border-bottom: 1px solid var(--line); }
+.dlg-head h2 { font-family: var(--display); font-weight: 650; font-size: clamp(1.4rem, 4vw, 1.9rem); line-height: 1.15; margin: 0; text-wrap: balance; }
+.close { flex: none; font: inherit; font-size: .9rem; background: var(--accent-soft); color: var(--ink); border: 0; border-radius: 4px; padding: .45rem .75rem; cursor: pointer; }
+.close:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.dlg-body { padding: 1rem 1.25rem 1.5rem; display: grid; gap: 1.25rem; }
+.dlg-body section { display: grid; gap: .5rem; }
+.dlg-body h3 { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0; font-weight: 600; }
+.dlg-body p, .dlg-body ul { margin: 0; max-width: 65ch; }
+.dlg-body ul { padding-left: 1.2rem; display: grid; gap: .35rem; }
+.short { font-size: 1.12rem; background: var(--accent-soft); padding: .9rem 1rem; border-radius: 4px; }
+blockquote { margin: 0; padding-left: .9rem; border-left: 3px solid var(--accent); font-family: var(--display); font-size: 1.05rem; }
+blockquote cite { display: block; font-family: var(--body); font-style: normal; font-size: .85rem; color: var(--muted); margin-top: .2rem; }
+.intro { color: var(--muted); display: grid; gap: .6rem; }
+.short { display: grid; gap: .6rem; }
+.dlg-body details { border-top: 1px solid var(--line, #d9dedc); padding-top: .75rem; }
+.dlg-body details > p { margin-top: .6rem; }
+.dlg-body summary { cursor: pointer; font-family: var(--display); font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+.dlg-body summary::-webkit-details-marker { display: none; }
+.dlg-body summary::after { content: "+"; color: var(--accent); font-weight: 400; }
+.dlg-body details[open] summary::after { content: "–"; }
+.sources { font-size: .92rem; color: var(--muted); }
+.draft-note { font-size: .85rem; color: var(--draft); background: var(--draft-soft); padding: .55rem .8rem; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+</style>
+</head>
+<body>
+
+<div class="draft-banner" role="note">UDKAST · Teksterne er forslag og skal gennemgås, før siden går live.</div>
+
+<nav class="site-nav" aria-label="Hovedmenu">
+  <div class="wrap">
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M31 17.5C24.5 12.5 15 11.5 5 13.5v36c10-2 19.5-1 26 4z" fill="currentColor"/><path d="M33 17.5c6.5-5 16-6 26-4v36c-10-2-19.5-1-26 4z" fill="currentColor" opacity=".55"/><path d="M11 22.5c5.5-.8 10.5-.3 14.5 1.6M11 29.5c5.5-.8 10.5-.3 14.5 1.6M11 36.5c5.5-.8 10.5-.3 14.5 1.6" fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round"/><path d="M41.5 27.5a5 5 0 1 1 7.5 4.3c-1.7 1-2.5 2-2.5 3.7v.8" fill="none" stroke="var(--bg)" stroke-width="3.4" stroke-linecap="round"/><circle cx="46.5" cy="41.5" r="2.1" fill="var(--bg)"/></svg><span>Hvad siger Islam<i>?</i></span></a>
+    <ul class="menu">
+      <li><a href="/#kontroversielle">Kontroversielle emner</a></li>
+      <li><a href="/#grundlag">Grundlæggende emner</a></li>
+      <li><a href="/om" aria-current="page">Om siden</a></li>
+      <li><a href="/kontakt">Kontakt</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap page">
+  <h1>Om siden</h1>
+  <div class="text">
+      <p>Islam er en religion med 1.400 års lærdomstradition og mange retninger. Når nogen siger "islam siger X", er svaret ofte mere nuanceret. Her viser vi teksterne, sammenhængen og de forskellige synspunkter.</p>
+      <p>Vi henviser til Koranen med sura og vers (fx 2:256) og til hadith-samlinger med nummer, så alt kan efterprøves.</p>
+    </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>hvadsigerislam.dk</span>
+    <span class="foot-links"><a href="/om">Om siden</a><a href="/kontakt">Kontakt</a></span>
+  </div>
+</footer>
+</body>
+</html>

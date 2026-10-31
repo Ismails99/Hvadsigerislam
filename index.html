@@ -109,6 +109,13 @@ h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.6rem, 8vw
 .mail { font-family: var(--display); font-size: 1.35rem; font-weight: 650; text-decoration: none; border-bottom: 2px solid var(--accent-soft); }
 .mail:hover { border-color: var(--accent); }
 footer { border-top: 1px solid var(--line); padding-block: 1.75rem 2.5rem; color: var(--muted); font-size: .88rem; }
+footer a { color: var(--muted); text-decoration: none; } footer a:hover { color: var(--ink); }
+.foot-links { display: flex; gap: 1.5rem; }
+.page { padding-block: clamp(3.5rem, 9vw, 6rem) clamp(4rem, 10vw, 7rem); max-width: 44rem; min-height: calc(100dvh - 240px); }
+.page h1 { font-size: clamp(2.3rem, 6vw, 3.4rem); margin-bottom: 1.5rem; }
+.page .text { display: grid; gap: 1.1rem; color: var(--muted); font-size: 1.1rem; line-height: 1.75; }
+.page .text p { margin: 0; }
+.menu a[aria-current] { color: var(--ink); border-color: var(--accent); }
 footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 
 dialog {
@@ -147,12 +154,12 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
 
 <nav class="site-nav" aria-label="Hovedmenu">
   <div class="wrap">
-    <a class="logo" href="#top"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M31 17.5C24.5 12.5 15 11.5 5 13.5v36c10-2 19.5-1 26 4z" fill="currentColor"/><path d="M33 17.5c6.5-5 16-6 26-4v36c-10-2-19.5-1-26 4z" fill="currentColor" opacity=".55"/><path d="M11 22.5c5.5-.8 10.5-.3 14.5 1.6M11 29.5c5.5-.8 10.5-.3 14.5 1.6M11 36.5c5.5-.8 10.5-.3 14.5 1.6" fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round"/><path d="M41.5 27.5a5 5 0 1 1 7.5 4.3c-1.7 1-2.5 2-2.5 3.7v.8" fill="none" stroke="var(--bg)" stroke-width="3.4" stroke-linecap="round"/><circle cx="46.5" cy="41.5" r="2.1" fill="var(--bg)"/></svg><span>Hvad siger Islam<i>?</i></span></a>
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M31 17.5C24.5 12.5 15 11.5 5 13.5v36c10-2 19.5-1 26 4z" fill="currentColor"/><path d="M33 17.5c6.5-5 16-6 26-4v36c-10-2-19.5-1-26 4z" fill="currentColor" opacity=".55"/><path d="M11 22.5c5.5-.8 10.5-.3 14.5 1.6M11 29.5c5.5-.8 10.5-.3 14.5 1.6M11 36.5c5.5-.8 10.5-.3 14.5 1.6" fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round"/><path d="M41.5 27.5a5 5 0 1 1 7.5 4.3c-1.7 1-2.5 2-2.5 3.7v.8" fill="none" stroke="var(--bg)" stroke-width="3.4" stroke-linecap="round"/><circle cx="46.5" cy="41.5" r="2.1" fill="var(--bg)"/></svg><span>Hvad siger Islam<i>?</i></span></a>
     <ul class="menu">
-      <li><a href="#kontroversielle">Kontroversielle emner</a></li>
-      <li><a href="#grundlag">Grundlæggende emner</a></li>
-      <li><a href="#om">Om siden</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="/#kontroversielle">Kontroversielle emner</a></li>
+      <li><a href="/#grundlag">Grundlæggende emner</a></li>
+      <li><a href="/om">Om siden</a></li>
+      <li><a href="/kontakt">Kontakt</a></li>
     </ul>
   </div>
 </nav>
@@ -187,28 +194,12 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
     </div>
   </section>
 
-  <section class="section split" id="om">
-    <h2>Om siden</h2>
-    <div class="text">
-      <p>Islam er en religion med 1.400 års lærdomstradition og mange retninger. Når nogen siger "islam siger X", er svaret ofte mere nuanceret. Her viser vi teksterne, sammenhængen og de forskellige synspunkter.</p>
-      <p>Vi henviser til Koranen med sura og vers (fx 2:256) og til hadith-samlinger med nummer, så alt kan efterprøves.</p>
-    </div>
-  </section>
-
-  <section class="section split" id="kontakt">
-    <h2>Kontakt os</h2>
-    <div class="text">
-      <p>Har du et spørgsmål, du gerne vil have svar på, eller en rettelse til en tekst? Skriv til os.</p>
-      <!-- PLADSHOLDER: e-mailadressen er ikke bekræftet endnu -->
-      <p><a class="mail" href="mailto:kontakt@hvadsigerislam.dk">kontakt@hvadsigerislam.dk</a></p>
-    </div>
-  </section>
 </main>
 
 <footer>
   <div class="wrap">
     <span>hvadsigerislam.dk</span>
-    <span>Spørgsmål om islam, besvaret med kilderne.</span>
+    <span class="foot-links"><a href="/om">Om siden</a><a href="/kontakt">Kontakt</a></span>
   </div>
 </footer>
 
