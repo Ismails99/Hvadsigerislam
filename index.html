@@ -88,6 +88,14 @@ dialog::backdrop { background: rgb(10 20 17 / .55); }
 .short { font-size: 1.12rem; background: var(--accent-soft); padding: .9rem 1rem; border-radius: 4px; }
 blockquote { margin: 0; padding-left: .9rem; border-left: 3px solid var(--accent); font-family: var(--display); font-size: 1.05rem; }
 blockquote cite { display: block; font-family: var(--body); font-style: normal; font-size: .85rem; color: var(--muted); margin-top: .2rem; }
+.intro { color: var(--muted); display: grid; gap: .6rem; }
+.short { display: grid; gap: .6rem; }
+.dlg-body details { border-top: 1px solid var(--line, #d9dedc); padding-top: .75rem; }
+.dlg-body details > p { margin-top: .6rem; }
+.dlg-body summary { cursor: pointer; font-family: var(--display); font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+.dlg-body summary::-webkit-details-marker { display: none; }
+.dlg-body summary::after { content: "+"; color: var(--accent); font-weight: 400; }
+.dlg-body details[open] summary::after { content: "–"; }
 .sources { font-size: .92rem; color: var(--muted); }
 .draft-note { font-size: .85rem; color: var(--draft); background: var(--draft-soft); padding: .55rem .8rem; border-radius: 4px; }
 @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
@@ -122,24 +130,14 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
 </dialog>
 
 <!-- Hvert spørgsmål er en <template>. Tilføj et nyt kort ved at kopiere en blok og give den et nyt id. -->
-<template id="homoseksualitet" data-tag="Seksualitet" data-title="Homoseksualitet" data-q="Skal homoseksuelle dø?">
-  <p class="short">Nej. Koranen fastsætter ingen straf i denne verden for homoseksualitet. Ingen muslim har ret til at skade et andet menneske, og muslimer i Danmark følger dansk lov.</p>
-  <section>
-    <h3>Hvad siger kilderne?</h3>
-    <p>Koranen fortæller om profeten Lots folk (7:80–84, 26:165–166). Fortællingen fordømmer folkets handlinger, men der står ikke, at mennesker skal straffe andre for dem. Straffen i fortællingen kommer fra Gud.</p>
-    <p>Enkelte hadith-beretninger (fx Abu Dawud 4462, at-Tirmidhi 1456) nævner dødsstraf. Hadith-lærde har længe diskuteret, om de er pålidelige, og at-Tirmidhi selv bemærker svagheder i overleveringen.</p>
-    <p>Klassisk islamisk ret dømte aldrig følelser eller identitet, kun handlinger. Kravet var fire øjenvidner til selve handlingen, hvilket i praksis gjorde domfældelse næsten umulig.</p>
-  </section>
-  <section>
-    <h3>Forskellige synspunkter</h3>
-    <ul>
-      <li>Imam Abu Hanifa, grundlæggeren af den største juridiske skole, mente, at der ikke findes nogen fastsat straf i Koranen for handlingen.</li>
-      <li>Mange konservative lærde ser handlingen som en synd, men skelner mellem synd og strafbar forbrydelse.</li>
-      <li>Nogle stater har dødsstraf i deres lovgivning. Det er politiske valg, som mange muslimske lærde kritiserer.</li>
-      <li>Nogle muslimske teologer, fx Scott Siraj al-Haqq Kugle, læser teksterne som en fordømmelse af vold og overgreb, ikke af kærlighed mellem to mennesker.</li>
-    </ul>
-  </section>
-  <p class="sources"><strong>Kilder:</strong> Koranen 7:80–84, 26:165–166 · Abu Dawud 4462 · at-Tirmidhi 1456 · S. Kugle, <em>Homosexuality in Islam</em> (2010)</p>
+<template id="homoseksualitet" data-tag="Seksualitet" data-title="Homoseksualitet" data-q="Skal homoseksuelle dø?" data-approved>
+  <div class="intro"><p>Emnet omkring homoseksualitet i islam kan være et følelsesladet emne at adressere som muslim, især i et vestligt samfund. Det kan fylde for mange mennesker, og de kan blive nysgerrige på, hvordan islam ser på homoseksualitet. Det er derfor vigtigt at give et svar, som både reflekterer islams principper og manerer uden at gå på kompromis med sandheden.</p></div>
+  <div class="short"><p>Svaret er meget enkelt: Nej, homoseksuelle skal ikke dø. Det er i modstrid med Koranen, der siger, at der ingen tvang er i religionen (2:256). Begår man homoseksuelle handlinger, er man syndig, og det er imellem Gud og en selv.</p><p>I islam er homoseksualitet en synd blandt andre synder. Man vil ikke blive stillet til regnskab for at føle eller have tanker omkring noget, som man ikke udfører. Som muslim kan man ikke tvinge sine egne trosprincipper eller regler ned over andre, som ikke deler samme tro.</p></div>
+  <details><summary>Kan man være homoseksuel og muslim?</summary><p>Islam siger at det er forbudt at handle på det. Man vil ikke blive stillet til regnskab for at føle eller have tanker omkring noget, som man ikke udfører. Tværtimod, vil man blive belønnet for at afholde sig fra at begå en syndig handling.</p><p>Allah tester mennesker forskelligt, med nogen tester han dem med fattigdom, rigdom, forældreløshed, sygdom, handicap osv. for at se, hvordan vi behandler hinanden og hvordan vi er overfor Allah. Og nogen mennesker kan blive testet med at have følelser for det samme køn. Vælger man at vende sig til sin skaber og bede til at Han forsyner vedkommende med noget godt, vil Allah aldrig tilbagevise sådan en bøn.</p></details>
+  <details><summary>Hvorfor er det en synd?</summary><p>Vi som muslimer underkaster os Guds påbud og forbud, hvad enten det er forbud imod at stjæle, vise respektløshed imod ens forældre, drikke alkohol og have sex før ægteskab. Nogen af tingene kan vi som muslimer (eller ikke-muslimer) godt se meningen bag, da vi for eksempel ved at alkohol er skadeligt for vores helbred. Og andre gange, kan vi ikke få det til at give mening.</p><p>Det at være muslim betyder at vi underkaster os vores skaber, som har skabt os og ved hvad der er godt og dårligt for os. Han ser ting, vi ikke kan se. Han ved ting vi ikke ved.</p><p>Som muslim er der rum til at tænke og reflektere sig frem til forskellige argumenter og visdomme men i sidste ende siger vi "Allah ved bedst".</p></details>
+  <details><summary>Synd, test og barmhjertighed</summary><p>Vi er ikke engle, vi er skabt med drifter og individuelle lyster, der kan dirigere os imod det Gud har forbudt os. Det er derfor Gud tester os.</p><p>Det er ikke igennem vores handlinger vi kommer i Paradiset. Det er igennem Guds barmhjertighed, og den opnår vi ved at vende tilbage til Ham og erkende vores fejl og afholde sig fra at begå dem igen.</p><p>Homoseksuel eller ej, så er vi alle mennesker og Gud ønsker det bedste for os. Vi er alle mennesker med svagheder og mangler, og har alle vores udfordringer.</p></details>
+  <details><summary>Hvordan møder en muslim andre?</summary><p>Vi ønsker ikke at stride eller såre andres følelser. I islam er vi forpligtet til at påbyde det gode og forbyde det slette med det formål at vi kan påminde og advare hinanden med korrekt maner. Islam kalder til at man ikke går til yderligheder, og at man styrer sin vrede.</p><p>Hvis en muslim går hen til en muslim og fortæller at vedkommende begår en synd, er det meningen at han ønsker det bedste for vedkommende, om så synden er vedrørende tyveri, mord, skade, bagtale, snakke dårligt til sine forældre eller begå hor som heteroseksuel såvel som homoseksuel.</p><p>Det er vigtigt at skelne mellem, hvad en muslim gør, og hvad islam siger man skal. En muslim er ikke en ubetinget repræsentant af islam. Ingen muslim er fejlfri, og kan derfor handle uislamisk pga. kultur eller andre ting og har sit eget regnskab hos Allah.</p></details>
+  <p class="sources"><strong>Kilder:</strong> Koranen 2:256</p>
 </template>
 
 <template id="frafald" data-tag="Trosfrihed" data-title="Frafaldenhed" data-q="Skal frafaldne muslimer dø?">
@@ -266,7 +264,7 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
     var note = document.createElement('p');
     note.className = 'draft-note';
     note.textContent = 'Udkast. Teksten skal gennemgås, og kilderne skal tjekkes, før siden går live.';
-    body.appendChild(note);
+    if (!t.hasAttribute('data-approved')) body.appendChild(note);
     if (!dlg.open) dlg.showModal();
     dlg.scrollTop = 0;
   }
