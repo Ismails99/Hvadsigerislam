@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hvad siger islam?</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Spørgsmål om islam, som man hører i debatten, besvaret med kilderne på bordet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,650&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: kort intro, derefter et gitter af kvadratiske spørgsmålskort; hvert kort åbner et svar i en dialog */
+:root {
+  --bg: #f3f6f5;
+  --surface: #ffffff;
+  --ink: #14231f;
+  --muted: #536660;
+  --line: #d5dfdb;
+  --accent: #0d6a5a;
+  --accent-soft: #e1efeb;
+  --draft: #8a5300;
+  --draft-soft: #fbf0dc;
+  --display: "Literata", Georgia, "Times New Roman", serif;
+  --body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1513; --surface: #16201d; --ink: #e5eeeb; --muted: #9ab0a9; --line: #2a3834;
+    --accent: #62c6af; --accent-soft: #1b302b; --draft: #e8b25a; --draft-soft: #2e2516; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1513; --surface: #16201d; --ink: #e5eeeb; --muted: #9ab0a9; --line: #2a3834;
+  --accent: #62c6af; --accent-soft: #1b302b; --draft: #e8b25a; --draft-soft: #2e2516; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--body);
+  font-size: 1.0625rem; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 1.25rem 3rem; display: grid; gap: 2.5rem; }
+.draft-banner {
+  background: var(--draft-soft); color: var(--draft); border: 1px solid currentColor;
+  border-radius: 6px; padding: .6rem .9rem; font-size: .9rem; font-weight: 500;
+}
+header { display: grid; gap: .75rem; max-width: 40rem; }
+.brand { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+h1 { font-family: var(--display); font-weight: 650; font-size: clamp(2.2rem, 6vw, 3.6rem); line-height: 1.05; margin: 0; text-wrap: balance; }
+.lede { font-size: 1.15rem; color: var(--muted); margin: 0; max-width: 34rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 14px; }
+@media (max-width: 520px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } }
+.card {
+  aspect-ratio: 1; max-width: 100%; display: flex; flex-direction: column; justify-content: space-between;
+  text-align: left; padding: 1.1rem; border: 1px solid var(--line); border-radius: 4px;
+  background: var(--surface); color: var(--ink); font: inherit; cursor: pointer; min-width: 0;
+  transition: border-color .15s, transform .15s, background .15s;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.card .tag { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.card .q { font-family: var(--display); font-weight: 500; font-size: clamp(1.15rem, 2.4vw, 1.5rem); line-height: 1.2; text-wrap: balance; overflow-wrap: anywhere; }
+.card .more { font-size: .85rem; color: var(--muted); }
+@media (max-width: 520px) { .card { padding: .8rem; } .card .q { font-size: 1.05rem; } .card .more { display: none; } }
+.about { display: grid; gap: .5rem; max-width: 40rem; color: var(--muted); font-size: .98rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
+.about h2 { font-family: var(--display); color: var(--ink); font-size: 1.3rem; margin: 0; font-weight: 650; }
+.about p { margin: 0; }
+
+dialog {
+  width: min(720px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; border: 1px solid var(--line);
+  border-radius: 6px; background: var(--surface); color: var(--ink);
+}
+dialog::backdrop { background: rgb(10 20 17 / .55); }
+.dlg-head { position: sticky; top: 0; background: var(--surface); display: flex; justify-content: space-between; align-items: start; gap: 1rem; padding: 1.25rem 1.25rem .75rem; border-bottom: 1px solid var(--line); }
+.dlg-head h2 { font-family: var(--display); font-weight: 650; font-size: clamp(1.4rem, 4vw, 1.9rem); line-height: 1.15; margin: 0; text-wrap: balance; }
+.close { flex: none; font: inherit; font-size: .9rem; background: var(--accent-soft); color: var(--ink); border: 0; border-radius: 4px; padding: .45rem .75rem; cursor: pointer; }
+.close:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.dlg-body { padding: 1rem 1.25rem 1.5rem; display: grid; gap: 1.25rem; }
+.dlg-body section { display: grid; gap: .5rem; }
+.dlg-body h3 { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0; font-weight: 600; }
+.dlg-body p, .dlg-body ul { margin: 0; max-width: 65ch; }
+.dlg-body ul { padding-left: 1.2rem; display: grid; gap: .35rem; }
+.short { font-size: 1.12rem; background: var(--accent-soft); padding: .9rem 1rem; border-radius: 4px; }
+blockquote { margin: 0; padding-left: .9rem; border-left: 3px solid var(--accent); font-family: var(--display); font-size: 1.05rem; }
+blockquote cite { display: block; font-family: var(--body); font-style: normal; font-size: .85rem; color: var(--muted); margin-top: .2rem; }
+.sources { font-size: .92rem; color: var(--muted); }
+.draft-note { font-size: .85rem; color: var(--draft); background: var(--draft-soft); padding: .55rem .8rem; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="draft-banner" role="note">UDKAST. Teksterne er forslag og skal gennemgås, før siden går live. Citater er egne oversættelser og skal tjekkes mod en anerkendt dansk Koranoversættelse.</div>
+
+  <header>
+    <div class="brand">hvadsigerislam.dk</div>
+    <h1>Hvad siger islam?</h1>
+    <p class="lede">Spørgsmål, man hører i debatten. Svar med kilderne på bordet, så du selv kan se, hvad der står, og hvordan muslimske lærde har forstået det.</p>
+  </header>
+
+  <main class="grid" id="grid" aria-label="Spørgsmål"></main>
+
+  <section class="about">
+    <h2>Om siden</h2>
+    <p>Islam er en religion med 1.400 års lærdomstradition og mange retninger. Når nogen siger "islam siger X", er svaret ofte mere nuanceret. Her viser vi teksterne, sammenhængen og de forskellige synspunkter.</p>
+    <p>Vi henviser til Koranen med sura og vers (fx 2:256) og til hadith-samlinger med nummer, så alt kan efterprøves.</p>
+  </section>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <div class="dlg-head">
+    <h2 id="dlg-title"></h2>
+    <button class="close" id="close" type="button">Luk</button>
+  </div>
+  <div class="dlg-body" id="dlg-body"></div>
+</dialog>
+
+<!-- Hvert spørgsmål er en <template>. Tilføj et nyt kort ved at kopiere en blok og give den et nyt id. -->
+<template id="homoseksualitet" data-tag="Seksualitet" data-q="Skal homoseksuelle dø?">
+  <p class="short">Nej. Koranen fastsætter ingen straf i denne verden for homoseksualitet. Ingen muslim har ret til at skade et andet menneske, og muslimer i Danmark følger dansk lov.</p>
+  <section>
+    <h3>Hvad siger kilderne?</h3>
+    <p>Koranen fortæller om profeten Lots folk (7:80–84, 26:165–166). Fortællingen fordømmer folkets handlinger, men der står ikke, at mennesker skal straffe andre for dem. Straffen i fortællingen kommer fra Gud.</p>
+    <p>Enkelte hadith-beretninger (fx Abu Dawud 4462, at-Tirmidhi 1456) nævner dødsstraf. Hadith-lærde har længe diskuteret, om de er pålidelige, og at-Tirmidhi selv bemærker svagheder i overleveringen.</p>
+    <p>Klassisk islamisk ret dømte aldrig følelser eller identitet, kun handlinger. Kravet var fire øjenvidner til selve handlingen, hvilket i praksis gjorde domfældelse næsten umulig.</p>
+  </section>
+  <section>
+    <h3>Forskellige synspunkter</h3>
+    <ul>
+      <li>Imam Abu Hanifa, grundlæggeren af den største juridiske skole, mente, at der ikke findes nogen fastsat straf i Koranen for handlingen.</li>
+      <li>Mange konservative lærde ser handlingen som en synd, men skelner mellem synd og strafbar forbrydelse.</li>
+      <li>Nogle stater har dødsstraf i deres lovgivning. Det er politiske valg, som mange muslimske lærde kritiserer.</li>
+      <li>Nogle muslimske teologer, fx Scott Siraj al-Haqq Kugle, læser teksterne som en fordømmelse af vold og overgreb, ikke af kærlighed mellem to mennesker.</li>
+    </ul>
+  </section>
+  <p class="sources"><strong>Kilder:</strong> Koranen 7:80–84, 26:165–166 · Abu Dawud 4462 · at-Tirmidhi 1456 · S. Kugle, <em>Homosexuality in Islam</em> (2010)</p>
+</template>
+
+<template id="frafald" data-tag="Trosfrihed" data-q="Skal frafaldne muslimer dø?">
+  <p class="short">Koranen siger, at der ingen tvang er i religion, og den nævner ingen straf i denne verden for at forlade islam. Spørgsmålet har dog været omdiskuteret i den klassiske tradition.</p>
+  <section>
+    <h3>Hvad siger Koranen?</h3>
+    <blockquote>Der er ingen tvang i religionen.<cite>Koranen 2:256</cite></blockquote>
+    <blockquote>Sandheden er fra jeres Herre. Den, der vil, lad ham tro, og den, der vil, lad ham ikke tro.<cite>Koranen 18:29</cite></blockquote>
+    <p>Koranen 4:137 omtaler mennesker, der tror, falder fra, tror igen og falder fra igen. Det giver kun mening, hvis de lever videre. Verset nævner ingen menneskelig straf.</p>
+  </section>
+  <section>
+    <h3>Hvad med hadith?</h3>
+    <p>En hadith i al-Bukhari (6922) siger: "Den, der skifter sin religion, dræb ham." En anden (al-Bukhari 6878) nævner den, der "forlader sin religion og skiller sig fra fællesskabet". Mange lærde forstår det som forræderi i krigstid, hvor det at forlade fællesskabet betød at gå over til fjenden.</p>
+  </section>
+  <section>
+    <h3>Forskellige synspunkter</h3>
+    <ul>
+      <li>Flertallet af klassiske jurister mente, at frafald kunne straffes med døden, ofte efter en periode, hvor personen blev bedt om at vende tilbage.</li>
+      <li>Mange moderne lærde, fx Taha Jabir al-Alwani, mener, at frafald i sig selv ikke skal straffes af mennesker, fordi det strider mod 2:256.</li>
+      <li>Egyptens tidligere stormufti Ali Gomaa har udtalt, at frafald er en sag mellem mennesket og Gud.</li>
+    </ul>
+  </section>
+  <p class="sources"><strong>Kilder:</strong> Koranen 2:256, 18:29, 4:137 · al-Bukhari 6922, 6878 · T. J. al-Alwani, <em>Apostasy in Islam</em> (2011)</p>
+</template>
+
+<template id="sharia" data-tag="Lov og ret" data-q="Sharia og straf">
+  <p class="short">Sharia betyder "vejen" og handler mest om bøn, faste, ægteskab, ærlighed og etik. Kun en lille del handler om straf, og den del har meget strenge betingelser.</p>
+  <section>
+    <h3>Hvad er sharia?</h3>
+    <p>Sharia er de guddommelige principper. Fiqh er den menneskelige fortolkning af dem, og den har altid rummet flere skoler og uenighed. Når nogen siger "sharia kræver X", er det oftest én bestemt fortolkning.</p>
+  </section>
+  <section>
+    <h3>De faste straffe (hudud)</h3>
+    <p>Koranen nævner få faste straffe, fx for tyveri (5:38) og falsk anklage om utroskab (24:4). Lige efter tyveriverset står: "Men den, der angrer og retter op, vil Gud tilgive" (5:39).</p>
+    <p>Et centralt princip i islamisk ret er at afværge straf ved den mindste tvivl. Kalif Umar satte straffen for tyveri ud af kraft under en hungersnød, fordi folk stjal af nød.</p>
+  </section>
+  <section>
+    <h3>Og i Danmark?</h3>
+    <p>Koranen siger: "I, der tror, opfyld jeres aftaler" (5:1). Muslimske lærde er bredt enige om, at muslimer, der bor i et land, skal følge landets love. Ingen kan udføre straf på egen hånd.</p>
+  </section>
+  <p class="sources"><strong>Kilder:</strong> Koranen 5:1, 5:38–39, 24:4 · Princippet om at afværge straf ved tvivl, jf. at-Tirmidhi 1424 · M. H. Kamali, <em>Shari'ah Law: An Introduction</em> (2008)</p>
+</template>
+
+<template id="ligestilling" data-tag="Køn" data-q="Er kvinder og mænd lige?">
+  <p class="short">Ifølge Koranen har kvinder og mænd samme værdi og samme ansvar over for Gud. Om de har samme roller i familie og samfund, er muslimer uenige om.</p>
+  <section>
+    <h3>Hvad siger Koranen?</h3>
+    <blockquote>O mennesker, frygt jeres Herre, som skabte jer af én enkelt sjæl.<cite>Koranen 4:1</cite></blockquote>
+    <p>Koranen 33:35 nævner mænd og kvinder side om side i ti par og lover dem samme belønning. 16:97 siger, at den, der gør godt, "mand eller kvinde", får et godt liv.</p>
+  </section>
+  <section>
+    <h3>De omdiskuterede vers</h3>
+    <ul>
+      <li><strong>4:34</strong> taler om mandens ansvar og har et ord, der ofte oversættes "slå". Mange lærde begrænser det kraftigt eller oversætter det anderledes. Ifølge en hadith i Muslim (2328) slog profeten aldrig en kvinde.</li>
+      <li><strong>4:11</strong> giver sønner dobbelt arv i forhold til døtre. Det forklares med, at manden havde pligt til at forsørge familien, mens kvindens penge var hendes egne.</li>
+      <li><strong>2:282</strong> beder om to kvindelige vidner i stedet for én mand ved gældskontrakter. Mange forstår det ud fra datidens forhold.</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Forskellige synspunkter</h3>
+    <p>Nogle muslimer mener, at mænd og kvinder er lige i værdi, men har forskellige roller. Andre, fx teologen Amina Wadud, mener, at Koranens grundbudskab er fuld ligestilling. Historisk var profetens hustru Khadija en succesfuld forretningskvinde, og Aisha var en af de vigtigste lærde i den tidlige islam.</p>
+  </section>
+  <p class="sources"><strong>Kilder:</strong> Koranen 4:1, 4:11, 4:34, 2:282, 16:97, 33:35 · Muslim 2328 · A. Wadud, <em>Qur'an and Woman</em> (1999)</p>
+</template>
+
+<template id="jihad" data-tag="Vold og krig" data-q="Betyder jihad hellig krig?">
+  <p class="short">Jihad betyder "anstrengelse" eller "stræben". Det bruges om kampen for at blive et bedre menneske og om forsvar mod angreb, med strenge regler. Terror er forbudt.</p>
+  <section>
+    <h3>Hvad siger Koranen?</h3>
+    <blockquote>Kæmp for Guds sag mod dem, der kæmper mod jer, men overskrid ikke grænserne. Gud elsker ikke dem, der overskrider grænserne.<cite>Koranen 2:190</cite></blockquote>
+    <blockquote>Den, der dræber et menneske, er som én, der har dræbt hele menneskeheden.<cite>Koranen 5:32</cite></blockquote>
+  </section>
+  <section>
+    <h3>Reglerne for krig</h3>
+    <p>Den første kalif, Abu Bakr, forbød at dræbe kvinder, børn, ældre og munke og at ødelægge træer og afgrøder. Kun en legitim stat kan erklære forsvarskrig, ikke enkeltpersoner eller grupper.</p>
+    <p>I 2014 underskrev over 120 muslimske lærde et åbent brev til lederen af Islamisk Stat, hvor de punkt for punkt afviste gruppens brug af islam.</p>
+  </section>
+  <p class="sources"><strong>Kilder:</strong> Koranen 2:190, 5:32, 22:39–40 · Malik, <em>al-Muwatta</em>, Abu Bakrs instrukser · <em>Open Letter to al-Baghdadi</em> (2014), lettertobaghdadi.com</p>
+</template>
+
+<template id="ikke-muslimer" data-tag="Sameksistens" data-q="Må muslimer være venner med ikke-muslimer?">
+  <p class="short">Ja. Koranen opfordrer til venlighed og retfærdighed over for ikke-muslimer, der lever i fred med muslimer.</p>
+  <section>
+    <h3>Hvad siger Koranen?</h3>
+    <blockquote>Gud forbyder jer ikke at være gode og retfærdige over for dem, der ikke har bekæmpet jer på grund af jeres religion.<cite>Koranen 60:8</cite></blockquote>
+    <blockquote>Vi har gjort jer til folk og stammer, for at I skal lære hinanden at kende.<cite>Koranen 49:13</cite></blockquote>
+    <p>Koranen 5:5 tillader muslimer at spise med og gifte sig med jøder og kristne.</p>
+  </section>
+  <section>
+    <h3>Hvad med "dræb dem, hvor I finder dem"?</h3>
+    <p>Verset (9:5) citeres ofte uden sammenhæng. Det handler om en bestemt gruppe, der havde brudt en fredsaftale i en krig. Verset før (9:4) undtager dem, der holdt aftalen, og verset efter (9:6) siger, at en fjende, der beder om beskyttelse, skal have den og føres i sikkerhed.</p>
+  </section>
+  <p class="sources"><strong>Kilder:</strong> Koranen 5:5, 9:4–6, 49:13, 60:8</p>
+</template>
+
+<script>
+(function () {
+  var grid = document.getElementById('grid');
+  var dlg = document.getElementById('dlg');
+  var title = document.getElementById('dlg-title');
+  var body = document.getElementById('dlg-body');
+  var templates = document.querySelectorAll('template[data-q]');
+
+  templates.forEach(function (t) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'card';
+    b.innerHTML = '<span class="tag"></span><span class="q"></span><span class="more">Læs svaret</span>';
+    b.querySelector('.tag').textContent = t.dataset.tag;
+    b.querySelector('.q').textContent = t.dataset.q;
+    b.addEventListener('click', function () { location.hash = t.id; });
+    grid.appendChild(b);
+  });
+
+  function show() {
+    var id = location.hash.slice(1);
+    var t = id && document.getElementById(id);
+    if (!t || t.tagName !== 'TEMPLATE') { if (dlg.open) dlg.close(); return; }
+    title.textContent = t.dataset.q;
+    body.replaceChildren(t.content.cloneNode(true));
+    var note = document.createElement('p');
+    note.className = 'draft-note';
+    note.textContent = 'Udkast. Teksten skal gennemgås, og kilderne skal tjekkes, før siden går live.';
+    body.appendChild(note);
+    if (!dlg.open) dlg.showModal();
+    dlg.scrollTop = 0;
+  }
+
+  function clearHash() {
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+  }
+  document.getElementById('close').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('close', clearHash);
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  window.addEventListener('hashchange', show);
+  show();
+})();
+</script>
+</body>
+</html>
