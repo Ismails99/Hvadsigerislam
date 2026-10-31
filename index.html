@@ -65,7 +65,7 @@ a { color: var(--accent); }
 .menu { display: flex; gap: clamp(1rem, 3vw, 2rem); list-style: none; margin: 0; padding: 0; }
 .menu a { color: var(--muted); text-decoration: none; font-size: .95rem; font-weight: 500; padding-block: .25rem; border-bottom: 2px solid transparent; transition: color .15s, border-color .15s; }
 .menu a:hover { color: var(--ink); border-color: var(--accent); }
-@media (max-width: 560px) { .site-nav .wrap { justify-content: center; } .menu { width: 100%; justify-content: center; } }
+@media (max-width: 760px) { .site-nav .wrap { justify-content: center; } .menu { width: 100%; justify-content: center; flex-wrap: wrap; gap: .35rem 1.1rem; } .menu a { font-size: .88rem; } }
 
 .hero { padding-block: clamp(4rem, 12vw, 8.5rem) clamp(3.5rem, 9vw, 6.5rem); max-width: 60rem; margin-inline: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
 .eyebrow { font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 1.5rem; }
@@ -95,6 +95,11 @@ h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.6rem, 8vw
 #dlg-body > .hook { font-size: 1.15rem; margin-bottom: 1rem; }
 .card .more { font-size: .9rem; font-weight: 600; color: var(--accent); padding-top: .9rem; border-top: 1px solid var(--line); }
 .card .more::after { content: " →"; }
+.card.soon { cursor: default; }
+.card.soon:hover { border-color: var(--line); box-shadow: none; transform: none; }
+.card.soon .more { color: var(--muted); font-weight: 500; }
+.card.soon .more::after { content: ""; }
+.section-head .eyebrow { margin: 0 0 .25rem; }
 @media (max-width: 520px) { .card { min-height: 0; padding: 1.25rem; } }
 
 .split { display: grid; gap: 1rem 3rem; }
@@ -144,7 +149,8 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
   <div class="wrap">
     <a class="logo" href="#top"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M31 17.5C24.5 12.5 15 11.5 5 13.5v36c10-2 19.5-1 26 4z" fill="currentColor"/><path d="M33 17.5c6.5-5 16-6 26-4v36c-10-2-19.5-1-26 4z" fill="currentColor" opacity=".55"/><path d="M11 22.5c5.5-.8 10.5-.3 14.5 1.6M11 29.5c5.5-.8 10.5-.3 14.5 1.6M11 36.5c5.5-.8 10.5-.3 14.5 1.6" fill="none" stroke="var(--bg)" stroke-width="2.4" stroke-linecap="round"/><path d="M41.5 27.5a5 5 0 1 1 7.5 4.3c-1.7 1-2.5 2-2.5 3.7v.8" fill="none" stroke="var(--bg)" stroke-width="3.4" stroke-linecap="round"/><circle cx="46.5" cy="41.5" r="2.1" fill="var(--bg)"/></svg><span>Hvad siger Islam<i>?</i></span></a>
     <ul class="menu">
-      <li><a href="#spoergsmaal">Spørgsmål</a></li>
+      <li><a href="#kontroversielle">Kontroversielle emner</a></li>
+      <li><a href="#grundlag">Grundlæggende emner</a></li>
       <li><a href="#om">Om siden</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
@@ -156,15 +162,29 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
     <p class="eyebrow">Islam forklaret med kilderne</p>
     <h1>Hvad siger Islam<i>?</i></h1>
     <p class="lede">Spørgsmål, man hører i debatten. Svar med kilderne på bordet, så du selv kan se, hvad der står, og hvordan muslimske lærde har forstået det.</p>
-    <a class="btn" href="#spoergsmaal">Se spørgsmålene</a>
+    <a class="btn" href="#kontroversielle">Se emnerne</a>
   </header>
 
-  <section class="section" id="spoergsmaal">
+  <section class="section" id="kontroversielle">
     <div class="section-head">
-      <h2>Spørgsmål og svar</h2>
-      <p>Vælg et emne for at læse svaret.</p>
+      <p class="eyebrow">Debatten</p>
+      <h2>Kontroversielle emner</h2>
+      <p>De emner, der fylder mest i debatten om islam. Vi tager dem op ét ad gangen, med kilderne på bordet.</p>
     </div>
-    <div class="grid" id="grid"></div>
+    <div class="grid" id="grid-kontroversielle"></div>
+  </section>
+
+  <section class="section" id="grundlag">
+    <div class="section-head">
+      <p class="eyebrow">Baggrund</p>
+      <h2>Grundlæggende emner</h2>
+      <p>Det, man skal vide for at forstå islam: kilderne, og hvordan de bruges.</p>
+    </div>
+    <div class="grid" id="grid-grundlag">
+      <div class="card soon"><span class="num">01</span><span class="q">Koranen</span><span class="hook">Hvad er Koranen, og hvordan læses den?</span><span class="more">Kommer snart</span></div>
+      <div class="card soon"><span class="num">02</span><span class="q">Hadith-videnskab</span><span class="hook">Hvordan skelner de lærde mellem pålidelige og svage beretninger?</span><span class="more">Kommer snart</span></div>
+      <div class="card soon"><span class="num">03</span><span class="q">Profeten Mohammed</span><span class="hook">Hvem var han, og hvad lærte han?</span><span class="more">Kommer snart</span></div>
+    </div>
   </section>
 
   <section class="section split" id="om">
@@ -292,7 +312,7 @@ blockquote cite { display: block; font-family: var(--body); font-style: normal; 
 
 <script>
 (function () {
-  var grid = document.getElementById('grid');
+  var grid = document.getElementById('grid-kontroversielle');
   var dlg = document.getElementById('dlg');
   var title = document.getElementById('dlg-title');
   var body = document.getElementById('dlg-body');
