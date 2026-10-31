@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>@media (prefers-color-scheme: dark){.a{fill:#62c6af}.o{stroke:#0e1513}.of{fill:#0e1513}}</style>
+  <path class="a" d="M31 17.5C24.5 12.5 15 11.5 5 13.5v36c10-2 19.5-1 26 4z" fill="#0d6a5a"/>
+  <path class="a" d="M33 17.5c6.5-5 16-6 26-4v36c-10-2-19.5-1-26 4z" fill="#0d6a5a" opacity=".55"/>
+  <path class="o" d="M11 22.5c5.5-.8 10.5-.3 14.5 1.6M11 29.5c5.5-.8 10.5-.3 14.5 1.6M11 36.5c5.5-.8 10.5-.3 14.5 1.6" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+  <path class="o" d="M41.5 27.5a5 5 0 1 1 7.5 4.3c-1.7 1-2.5 2-2.5 3.7v.8" fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round"/>
+  <circle class="of" cx="46.5" cy="41.5" r="2.1" fill="#ffffff"/>
+</svg>
